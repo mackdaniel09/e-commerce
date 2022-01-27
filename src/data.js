@@ -30,7 +30,6 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    // img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpg",
     img: "https://source.unsplash.com/random/?shirt",
     title: "SHIRT STYLE!",
   },

@@ -66,6 +66,7 @@ const ContactItem = styled.div`
   align-items: center;
 `;
 const Payment = styled.img``;
+
 const Footer = () => {
   return (
     <Container>
@@ -107,15 +108,16 @@ const Footer = () => {
       <Right>
         <Title>Contact</Title>
         <ContactItem>
-          <Room /> 622 Dixie Path, South Tobinchester 98336
+          <Room style={{ marginRight: "10px" }} /> 622 Dixie Path, South
+          Tobinchester 98336
         </ContactItem>
         <ContactItem>
-          <Phone /> +1 234 56 78
+          <Phone style={{ marginRight: "10px" }} /> +1 234 56 78
         </ContactItem>
         <ContactItem>
-          <Mail /> contact@contact.com
+          <Mail style={{ marginRight: "10px" }} /> contact@contact.com
         </ContactItem>
-        <Payment src="" />
+        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
     </Container>
   );
