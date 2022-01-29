@@ -1,6 +1,10 @@
 import FirstImage from "./images/1-removebg-preview.png";
 import SecondImage from "./images/2-removebg-preview.png";
 import ThirdImage from "./images/3-removebg-preview.png";
+import CategoryOne from "./images/shirt.png";
+import CategoryTwo from "./images/loungewear.png";
+import CategoryThree from "./images/jacket.png";
+
 export const sliderItems = [
   {
     id: 1,
@@ -30,19 +34,20 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://source.unsplash.com/random/?shirt",
+    // img: "https://source.unsplash.com/random/?shirt",
+    img: CategoryOne,
     title: "SHIRT STYLE!",
   },
   {
     id: 2,
-    // img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpg",
-    img: "https://source.unsplash.com/random/?loungewear",
+    // img: "https://source.unsplash.com/random/?loungewear",
+    img: CategoryTwo,
     title: "LOUNGEWEAR LOVE",
   },
   {
     id: 3,
-    // img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpg",
-    img: "https://source.unsplash.com/random/?jacket",
+    // img: "https://source.unsplash.com/random/?jacket",
+    img: CategoryThree,
     title: "LIGHT JACKETS",
   },
 ];
@@ -67,8 +72,4 @@ export const popularProducts = [
     id: 5,
     img: "https://source.unsplash.com/random/?loungewear",
   },
-  // {
-  //   id: 6,
-  //   img: "https://source.unsplash.com/random/?shirt",
-  // },
 ];

@@ -1,4 +1,9 @@
-import React from "react";
+import { AddAlert } from "@material-ui/icons";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { mobile } from "../responsive";
+import { useUserAuth } from "../userAuth";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -14,6 +19,10 @@ const Wrapper = styled.div`
   width: 25%;
   padding: 20px;
   background: white;
+
+  ${mobile({
+    width: "75%",
+  })}
 `;
 const Title = styled.h1`
   font-size: 24px;
@@ -38,7 +47,7 @@ const Button = styled.button`
   cursor: pointer;
   margin-bottom: 10px;
 `;
-const Link = styled.a`
+const LinkItem = styled(Link)`
   margin: 5px 0;
   font-size: 12px;
   text-decoration: underline;
@@ -46,16 +55,40 @@ const Link = styled.a`
 `;
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { login } = useUserAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password);
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+    }
+  };
   return (
     <Container>
       <Wrapper>
         <Title>SIGN IN</Title>
-        <Form>
-          <Input placeholder="username" />
-          <Input placeholder="password" />
-          <Button>Login</Button>
-          <Link>DO NOT YOU REMEBER PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
+        {error && <AddAlert>{error}</AddAlert>}
+        <Form onSubmit={handleSubmit}>
+          <Input
+            type="email"
+            placeholder="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button type="submit">Login</Button>
+          <LinkItem to="/register">DO NOT YOU REMEBER PASSWORD?</LinkItem>
+          <LinkItem to="/register">CREATE A NEW ACCOUNT</LinkItem>
         </Form>
       </Wrapper>
     </Container>

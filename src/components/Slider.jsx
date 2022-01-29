@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { sliderItems } from "../data";
+import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -9,6 +11,10 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
+
+  ${mobile({
+    display: "none",
+  })}
 `;
 const Arrow = styled.div`
   width: 50px;
@@ -60,11 +66,13 @@ const Desc = styled.p`
   font-weight: 500;
   letter-spacing: 3px;
 `;
-const Button = styled.button`
+const Button = styled(Link)`
   padding: 10px;
   font-size: 20px;
   background-color: transparent;
   cursor: pointer;
+  border: 1px solid black;
+  text-decoration: none;
 `;
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -92,7 +100,7 @@ const Slider = () => {
               <InfoContainer>
                 <Title>{item.title}</Title>
                 <Desc>{item.desc}</Desc>
-                <Button>SHOP NOW</Button>
+                <Button to="/productList">SHOP NOW</Button>
               </InfoContainer>
             </Slide>
           );
